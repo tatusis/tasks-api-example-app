@@ -1,0 +1,9 @@
+{
+    "type": "sqlite",
+    "database": "lib/storage/tasks_api.db",
+    "entities": [
+        "lib/models/*.js"
+    ],
+    "synchronize": true,
+    "logging": true
+}

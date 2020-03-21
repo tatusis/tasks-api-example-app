@@ -1,0 +1,36 @@
+{
+    "name": "tasks_api",
+    "version": "1.0.0",
+    "description": "Tasks API",
+    "main": "app.ts",
+    "scripts": {
+        "build": "tsc",
+        "start": "npm run build && node lib/app.js"
+    },
+    "author": "Rafael Ferreira",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/cookie-parser": "^1.4.2",
+        "@types/cors": "^2.8.6",
+        "@types/morgan": "^1.9.0",
+        "@types/node": "^13.9.1",
+        "@typescript-eslint/eslint-plugin": "^2.24.0",
+        "@typescript-eslint/parser": "^2.24.0",
+        "eslint": "^6.8.0",
+        "eslint-config-standard": "^14.1.0",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "typescript": "^3.8.3"
+    },
+    "dependencies": {
+        "cookie-parser": "^1.4.5",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "morgan": "^1.9.1",
+        "reflect-metadata": "^0.1.13",
+        "sqlite3": "^4.1.1",
+        "typeorm": "^0.2.24"
+    }
+}
