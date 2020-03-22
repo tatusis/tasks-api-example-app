@@ -2,13 +2,17 @@
     "name": "tasks_api",
     "version": "1.0.0",
     "description": "Tasks API (REST) developed on node.js, express, typeorm and sqlite",
-    "main": "./lib/app.js",
+    "main": "dist/app.js",
     "scripts": {
         "build": "tsc",
-        "start": "node ./lib/app.js"
+        "start": "node dist/app.js"
     },
     "author": "Rafael Ferreira",
-    "license": "ISC",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tatusis/tasks-api-example-app.git"
+    },
     "devDependencies": {
         "@types/cookie-parser": "^1.4.2",
         "@types/cors": "^2.8.6",

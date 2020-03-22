@@ -1,6 +1,6 @@
 import { getRepository, Repository, DeleteResult } from 'typeorm'
 
-import { Task } from '../models/task'
+import { Task } from '../entities/task'
 
 class TasksDao {
     private repository: Repository<Task>

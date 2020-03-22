@@ -5,7 +5,7 @@
         "experimentalDecorators": true,
         "module": "CommonJS",
         "moduleResolution": "Node",
-        "outDir": "lib",
+        "outDir": "dist",
         "sourceMap": true,
         "strict": true,
         "strictPropertyInitialization": false,

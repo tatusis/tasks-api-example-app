@@ -9,7 +9,7 @@ import { createConnection } from 'typeorm'
 import { tasksRouter } from './routers/tasks_router'
 
 function getLogStream (): fs.WriteStream {
-    const filePath = path.join(path.resolve('./lib'), 'log')
+    const filePath = path.join(path.resolve('./dist'), 'log')
     fs.mkdirSync(filePath, { recursive: true })
     return fs.createWriteStream(path.join(filePath, 'app.log'), { flags: 'a' })
 }

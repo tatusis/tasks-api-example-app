@@ -20,7 +20,7 @@
         "@typescript-eslint"
     ],
     "ignorePatterns": [
-        "lib"
+        "dist"
     ],
     "rules": {
         "indent": ["error", 4],
