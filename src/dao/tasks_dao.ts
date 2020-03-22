@@ -13,12 +13,12 @@ class TasksDao {
         return this.repository.find()
     }
 
-    public createTask (task: any): Promise<Task[]> {
-        return this.repository.save(this.repository.create(task))
-    }
-
     public findTaskById (id: number): Promise<Task> {
         return this.repository.findOneOrFail(id)
+    }
+
+    public insertTask (task: any): Promise<Task[]> {
+        return this.repository.save(this.repository.create(task))
     }
 
     public async updateTask (id: number, partialTask: any): Promise<Task> {
@@ -26,7 +26,7 @@ class TasksDao {
         return this.repository.save(this.repository.merge(task, partialTask))
     }
 
-    public removeTask (id: number): Promise<DeleteResult> {
+    public deleteTask (id: number): Promise<DeleteResult> {
         return this.repository.delete(id)
     }
 }

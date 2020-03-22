@@ -20,16 +20,16 @@ class TasksRouter {
                 .catch(next)
         })
 
-        this.router.post('/', (req: Request, res: Response, next: NextFunction) => {
-            this.tasksController.createTask(req.body)
+        this.router.get('/:id', (req: Request, res: Response, next: NextFunction) => {
+            this.tasksController.findTaskById(parseInt(req.params.id))
                 .then(result => {
                     res.send(result)
                 })
                 .catch(next)
         })
 
-        this.router.get('/:id', (req: Request, res: Response, next: NextFunction) => {
-            this.tasksController.findTaskById(parseInt(req.params.id))
+        this.router.post('/', (req: Request, res: Response, next: NextFunction) => {
+            this.tasksController.insertTask(req.body)
                 .then(result => {
                     res.send(result)
                 })
@@ -45,7 +45,7 @@ class TasksRouter {
         })
 
         this.router.delete('/:id', (req: Request, res: Response, next: NextFunction) => {
-            this.tasksController.removeTask(parseInt(req.params.id))
+            this.tasksController.deleteTask(parseInt(req.params.id))
                 .then(result => {
                     res.send(result)
                 })

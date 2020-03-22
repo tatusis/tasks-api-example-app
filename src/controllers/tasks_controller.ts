@@ -14,8 +14,8 @@ class TasksController {
         return this.tasksDao.findAllTasks()
     }
 
-    public createTask (task: any): Promise<Task[]> {
-        return this.tasksDao.createTask(task)
+    public insertTask (task: any): Promise<Task[]> {
+        return this.tasksDao.insertTask(task)
     }
 
     public findTaskById (id: number): Promise<Task> {
@@ -26,8 +26,8 @@ class TasksController {
         return this.tasksDao.updateTask(id, partialTask)
     }
 
-    public removeTask (id: number): Promise<DeleteResult> {
-        return this.tasksDao.removeTask(id)
+    public deleteTask (id: number): Promise<DeleteResult> {
+        return this.tasksDao.deleteTask(id)
     }
 }
 
