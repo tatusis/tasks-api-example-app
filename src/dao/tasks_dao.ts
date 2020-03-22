@@ -5,7 +5,7 @@ import { Task } from '../entities/task'
 class TasksDao {
     private repository: Repository<Task>
 
-    constructor () {
+    public constructor () {
         this.repository = getRepository(Task)
     }
 

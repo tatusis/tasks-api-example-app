@@ -6,7 +6,7 @@ import { TasksDao } from '../dao/tasks_dao'
 class TasksController {
     private tasksDao: TasksDao
 
-    constructor () {
+    public constructor () {
         this.tasksDao = new TasksDao()
     }
 

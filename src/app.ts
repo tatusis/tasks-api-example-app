@@ -9,17 +9,17 @@ import { createConnection } from 'typeorm'
 import { TasksRouter } from './routers/tasks_router'
 
 class App {
-    public app: express.Application
-    public port: number
+    private app: express.Application
+    private port: number
 
-    constructor () {
+    public constructor (port: number) {
         this.app = express()
         this.app.use(logger('tiny', { stream: this.getStream() }))
         this.app.use(express.json())
         this.app.use(express.urlencoded({ extended: false }))
         this.app.use(cookieParser())
         this.app.use(cors())
-        this.port = 3000
+        this.port = port
     }
 
     private getStream (): fs.WriteStream {
@@ -43,4 +43,4 @@ class App {
     }
 }
 
-(new App()).main()
+(new App(3000)).main()

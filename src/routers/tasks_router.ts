@@ -8,7 +8,7 @@ class TasksRouter {
     public router: Router;
     private tasksController: TasksController
 
-    constructor () {
+    public constructor () {
         this.router = Router()
         this.tasksController = new TasksController()
 
