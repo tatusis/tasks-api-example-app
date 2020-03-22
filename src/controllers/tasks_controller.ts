@@ -1,6 +1,7 @@
+import { DeleteResult } from 'typeorm'
+
 import { Task } from '../entities/task'
 import { TasksDao } from '../dao/tasks_dao'
-import { DeleteResult } from 'typeorm'
 
 class TasksController {
     private tasksDao: TasksDao

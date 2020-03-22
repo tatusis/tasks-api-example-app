@@ -1,42 +1,61 @@
-import express from 'express'
+import { Router, Request, Response, NextFunction } from 'express'
 
 import { TasksController } from '../controllers/tasks_controller'
 
-const tasksRouter = express.Router()
+const tasksRouter = Router()
 
-tasksRouter.get('/', (req: express.Request, res: express.Response) => {
-    (new TasksController()).findAllTasks()
-        .then(result => {
-            res.json(result)
+class TasksRouter {
+    public router: Router;
+    private tasksController: TasksController
+
+    constructor () {
+        this.router = Router()
+        this.tasksController = new TasksController()
+
+        this.router.get('/', (req: Request, res: Response, next: NextFunction) => {
+            this.tasksController.findAllTasks()
+                .then(result => {
+                    res.json(result)
+                })
+                .catch(next)
         })
-})
 
-tasksRouter.post('/', (req: express.Request, res: express.Response) => {
-    (new TasksController()).createTask(req.body)
-        .then(result => {
-            res.status(200).send(result)
+        this.router.post('/', (req: Request, res: Response, next: NextFunction) => {
+            this.tasksController.createTask(req.body)
+                .then(result => {
+                    res.send(result)
+                })
+                .catch(next)
         })
-})
 
-tasksRouter.get('/:id', (req: express.Request, res: express.Response) => {
-    (new TasksController()).findTaskById(parseInt(req.params.id))
-        .then(result => {
-            res.status(200).send(result)
+        this.router.get('/:id', (req: Request, res: Response, next: NextFunction) => {
+            this.tasksController.findTaskById(parseInt(req.params.id))
+                .then(result => {
+                    res.send(result)
+                })
+                .catch(next)
         })
-})
 
-tasksRouter.put('/:id', (req: express.Request, res: express.Response) => {
-    (new TasksController()).updateTask(parseInt(req.params.id), req.body)
-        .then(result => {
-            res.status(200).send(result)
+        this.router.put('/:id', (req: Request, res: Response, next: NextFunction) => {
+            this.tasksController.updateTask(parseInt(req.params.id), req.body)
+                .then(result => {
+                    res.send(result)
+                })
+                .catch(next)
         })
-})
 
-tasksRouter.delete('/:id', (req: express.Request, res: express.Response) => {
-    (new TasksController()).removeTask(parseInt(req.params.id))
-        .then(result => {
-            res.status(200).send(result)
+        this.router.delete('/:id', (req: Request, res: Response, next: NextFunction) => {
+            this.tasksController.removeTask(parseInt(req.params.id))
+                .then(result => {
+                    res.send(result)
+                })
+                .catch(next)
         })
-})
 
-export { tasksRouter }
+        this.router.use((err: any, req: Request, res: Response, next: NextFunction) => {
+            res.status(500).send(err)
+        })
+    }
+}
+
+export { TasksRouter }
