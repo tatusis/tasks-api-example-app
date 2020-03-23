@@ -1,7 +1,7 @@
-import { DeleteResult } from "typeorm"
+import { DeleteResult } from 'typeorm'
 
-import { TaskInterface, Task } from "../entities/task"
-import { TasksDao } from "../dao/tasks_dao"
+import { TaskInterface, Task } from '../entities/task'
+import { TasksDao } from '../dao/tasks_dao'
 
 class TasksController {
     private tasksDao: TasksDao

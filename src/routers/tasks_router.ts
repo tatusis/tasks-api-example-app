@@ -1,6 +1,6 @@
-import { Router, Request, Response, NextFunction } from "express"
+import { Router, Request, Response, NextFunction } from 'express'
 
-import { TasksController } from "../controllers/tasks_controller"
+import { TasksController } from '../controllers/tasks_controller'
 
 class TasksRouter {
     public router: Router
@@ -11,11 +11,11 @@ class TasksRouter {
         this.tasksController = new TasksController()
 
         this.router.get(
-            "/",
+            '/',
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .findAllTasks()
-                    .then((result) => {
+                    .then(result => {
                         res.json(result)
                     })
                     .catch(next)
@@ -23,11 +23,11 @@ class TasksRouter {
         )
 
         this.router.get(
-            "/:id",
+            '/:id',
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .findTaskById(parseInt(req.params.id))
-                    .then((result) => {
+                    .then(result => {
                         res.send(result)
                     })
                     .catch(next)
@@ -35,11 +35,11 @@ class TasksRouter {
         )
 
         this.router.post(
-            "/",
+            '/',
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .insertTask(req.body)
-                    .then((result) => {
+                    .then(result => {
                         res.send(result)
                     })
                     .catch(next)
@@ -47,11 +47,11 @@ class TasksRouter {
         )
 
         this.router.put(
-            "/:id",
+            '/:id',
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .updateTask(parseInt(req.params.id), req.body)
-                    .then((result) => {
+                    .then(result => {
                         res.send(result)
                     })
                     .catch(next)
@@ -59,11 +59,11 @@ class TasksRouter {
         )
 
         this.router.delete(
-            "/:id",
+            '/:id',
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .deleteTask(parseInt(req.params.id))
-                    .then((result) => {
+                    .then(result => {
                         res.send(result)
                     })
                     .catch(next)

@@ -1,6 +1,6 @@
-import { getRepository, Repository, DeleteResult } from "typeorm"
+import { getRepository, Repository, DeleteResult } from 'typeorm'
 
-import { TaskInterface, Task } from "../entities/task"
+import { TaskInterface, Task } from '../entities/task'
 
 class TasksDao {
     private repository: Repository<Task>
