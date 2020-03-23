@@ -1,13 +1,14 @@
 {
     "env": {
-        "browser": true,
+        "browser": false,
         "es6": true,
         "node": true
     },
     "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/semi",
-        "standard"
+        "plugin:prettier/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -15,19 +16,19 @@
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": 2015
+        "ecmaVersion": 2015,
+        "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
     "ignorePatterns": [
         "dist"
     ],
     "rules": {
-        "indent": ["error", 4],
-        "no-unused-vars": "off",
         "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-unused-vars": "off",
-        "no-undef": "off"
+        "@typescript-eslint/no-unused-vars": ["error", { "vars": "local", "args": "none" }],
+        "@typescript-eslint/member-delimiter-style": "off"
     }
 }
