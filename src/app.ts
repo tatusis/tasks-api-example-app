@@ -25,7 +25,7 @@ class App {
     private getStream (): fs.WriteStream {
         const filePath = path.join(path.resolve('./dist'), 'log')
         fs.mkdirSync(filePath, { recursive: true })
-        return fs.createWriteStream(path.join(filePath, 'this.app.log'), { flags: 'a' })
+        return fs.createWriteStream(path.join(filePath, 'tasks_api.log'), { flags: 'a' })
     }
 
     private start (): void {
