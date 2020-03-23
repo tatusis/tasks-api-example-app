@@ -1,6 +1,6 @@
 import { DeleteResult } from 'typeorm'
 
-import { Task } from '../entities/task'
+import { TaskInterface, Task } from '../entities/task'
 import { TasksDao } from '../dao/tasks_dao'
 
 class TasksController {
@@ -14,7 +14,7 @@ class TasksController {
         return this.tasksDao.findAllTasks()
     }
 
-    public insertTask (task: any): Promise<Task[]> {
+    public insertTask (task: TaskInterface): Promise<Task> {
         return this.tasksDao.insertTask(task)
     }
 
@@ -22,7 +22,7 @@ class TasksController {
         return this.tasksDao.findTaskById(id)
     }
 
-    public updateTask (id: number, partialTask: any): Promise<Task> {
+    public updateTask (id: number, partialTask: TaskInterface): Promise<Task> {
         return this.tasksDao.updateTask(id, partialTask)
     }
 

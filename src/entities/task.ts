@@ -1,5 +1,12 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 
+interface TaskInterface {
+    id?: number
+    name?: string
+    description?: string
+    isDone?: boolean
+}
+
 @Entity()
 class Task {
     @PrimaryGeneratedColumn()
@@ -15,4 +22,4 @@ class Task {
     private isDone: boolean
 }
 
-export { Task }
+export { TaskInterface, Task }

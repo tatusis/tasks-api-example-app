@@ -1,6 +1,6 @@
 import { getRepository, Repository, DeleteResult } from 'typeorm'
 
-import { Task } from '../entities/task'
+import { TaskInterface, Task } from '../entities/task'
 
 class TasksDao {
     private repository: Repository<Task>
@@ -17,11 +17,11 @@ class TasksDao {
         return this.repository.findOneOrFail(id)
     }
 
-    public insertTask (task: any): Promise<Task[]> {
+    public insertTask (task: TaskInterface): Promise<Task> {
         return this.repository.save(this.repository.create(task))
     }
 
-    public async updateTask (id: number, partialTask: any): Promise<Task> {
+    public async updateTask (id: number, partialTask: TaskInterface): Promise<Task> {
         const task = await this.repository.findOneOrFail(id)
         return this.repository.save(this.repository.merge(task, partialTask))
     }

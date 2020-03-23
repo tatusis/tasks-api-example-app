@@ -5,7 +5,7 @@ import { TasksController } from '../controllers/tasks_controller'
 const tasksRouter = Router()
 
 class TasksRouter {
-    public router: Router;
+    public router: Router
     private tasksController: TasksController
 
     public constructor () {

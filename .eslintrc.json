@@ -5,8 +5,9 @@
         "node": true
     },
     "extends": [
-        "standard",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/semi",
+        "standard"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -26,6 +27,7 @@
         "indent": ["error", 4],
         "no-unused-vars": "off",
         "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-unused-vars": "off"
+        "@typescript-eslint/no-unused-vars": "off",
+        "no-undef": "off"
     }
 }
