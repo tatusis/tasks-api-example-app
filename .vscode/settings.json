@@ -2,5 +2,6 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
-    "editor.rulers": [80]
+    "editor.rulers": [80],
+    "javascript.suggestionActions.enabled": false
 }

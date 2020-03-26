@@ -4,6 +4,7 @@
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "module": "CommonJS",
+        "moduleResolution": "node",
         "outDir": "dist",
         "sourceMap": true,
         "strict": true,

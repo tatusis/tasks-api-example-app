@@ -1,0 +1,6 @@
+{
+    "all": true,
+    "require": [
+        "source-map-support/register"
+    ]
+}

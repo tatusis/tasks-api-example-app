@@ -11,7 +11,7 @@ class TasksRouter {
         this.tasksController = new TasksController()
 
         this.router.get(
-            '/',
+            '/tasks',
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .findAllTasks()
@@ -23,7 +23,7 @@ class TasksRouter {
         )
 
         this.router.get(
-            '/:id',
+            '/task/:id',
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .findTaskById(parseInt(req.params.id))
@@ -35,7 +35,7 @@ class TasksRouter {
         )
 
         this.router.post(
-            '/',
+            '/tasks',
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .insertTask(req.body)
@@ -47,7 +47,7 @@ class TasksRouter {
         )
 
         this.router.put(
-            '/:id',
+            '/task/:id',
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .updateTask(parseInt(req.params.id), req.body)
@@ -59,7 +59,7 @@ class TasksRouter {
         )
 
         this.router.delete(
-            '/:id',
+            '/task/:id',
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .deleteTask(parseInt(req.params.id))

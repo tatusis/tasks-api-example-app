@@ -10,16 +10,16 @@ interface TaskInterface {
 @Entity()
 class Task {
     @PrimaryGeneratedColumn()
-    private id: number
+    public id: number
 
     @Column()
-    private name: string
+    public name: string
 
     @Column()
-    private description: string
+    public description: string
 
     @Column()
-    private isDone: boolean
+    public isDone: boolean
 }
 
 export { TaskInterface, Task }

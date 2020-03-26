@@ -1,8 +1,8 @@
 {
     "env": {
-        "browser": false,
         "es6": true,
-        "node": true
+        "node": true,
+        "mocha": true
     },
     "extends": [
         "eslint:recommended",
@@ -24,7 +24,8 @@
         "prettier"
     ],
     "ignorePatterns": [
-        "dist"
+        "dist",
+        "node_modules"
     ],
     "rules": {
         "@typescript-eslint/no-explicit-any": "off",
