@@ -12,7 +12,7 @@ import { TasksRouter } from './routers/tasks_router'
 
 class TasksApp {
     public app: express.Application
-    public httpServer: http.Server
+    public server: http.Server
 
     public constructor() {
         this.app = express()
@@ -35,8 +35,8 @@ class TasksApp {
         await createConnection()
         const tasksRouter = new TasksRouter()
         this.app.use(tasksRouter.router)
-        this.httpServer = http.createServer(this.app)
-        this.httpServer.listen('3000')
+        this.server = http.createServer(this.app)
+        this.server.listen('3000')
     }
 }
 

@@ -5,23 +5,13 @@ import { TasksApp } from '../tasks_app'
 
 chai.use(chaiHttp)
 
-describe('TasksApp class', () => {
+describe('TasksApp', () => {
     const tasksApp = new TasksApp()
 
     before((done: Mocha.Done) => {
         tasksApp.start().then(() => {
             done()
         })
-    })
-
-    it('GET /tasks', (done: Mocha.Done) => {
-        chai.request(tasksApp.app)
-            .get('/tasks')
-            .then((result: ChaiHttp.Response) => {
-                chai.assert.exists(result)
-                chai.assert.equal(result.status, 200)
-                done()
-            })
     })
 
     it('POST /tasks', (done: Mocha.Done) => {
@@ -43,6 +33,17 @@ describe('TasksApp class', () => {
                 chai.assert.equal(result.body.description, 'task1 description')
                 chai.assert.isBoolean(result.body.isDone)
                 chai.assert.equal(result.body.isDone, false)
+                done()
+            })
+    })
+
+    it('GET /tasks', (done: Mocha.Done) => {
+        chai.request(tasksApp.app)
+            .get('/tasks')
+            .then((result: ChaiHttp.Response) => {
+                chai.assert.exists(result)
+                chai.assert.equal(result.status, 200)
+                chai.assert.lengthOf(Array.from(result.body), 1)
                 done()
             })
     })
@@ -105,6 +106,6 @@ describe('TasksApp class', () => {
     })
 
     after(() => {
-        tasksApp.httpServer.close()
+        tasksApp.server.close()
     })
 })

@@ -9,7 +9,7 @@
         "rebuild": "npm run clean && npm run build",
         "start": "nodemon dist/server.js",
         "test": "npm run rebuild && mocha dist/test/*.test.js",
-        "coverage": "npm run rebuild && nyc mocha dist/test/**/*.test.js"
+        "test:coverage": "npm run rebuild && nyc mocha dist/test/**/*.test.js"
     },
     "author": "Rafael Ferreira",
     "license": "MIT",
