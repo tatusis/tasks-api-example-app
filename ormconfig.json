@@ -5,5 +5,5 @@
         "dist/entities/*.js"
     ],
     "synchronize": true,
-    "logging": true
+    "logging": false
 }

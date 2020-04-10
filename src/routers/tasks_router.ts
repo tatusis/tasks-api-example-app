@@ -1,5 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express'
+import { DeleteResult } from 'typeorm'
 
+import { Task } from '../entities/task'
 import { TasksController } from '../controllers/tasks_controller'
 
 class TasksRouter {
@@ -15,7 +17,7 @@ class TasksRouter {
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .findAllTasks()
-                    .then(result => {
+                    .then((result: Task[]) => {
                         res.json(result)
                     })
                     .catch(next)
@@ -27,7 +29,7 @@ class TasksRouter {
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .findTaskById(parseInt(req.params.id))
-                    .then(result => {
+                    .then((result: Task) => {
                         res.send(result)
                     })
                     .catch(next)
@@ -39,7 +41,7 @@ class TasksRouter {
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .insertTask(req.body)
-                    .then(result => {
+                    .then((result: Task) => {
                         res.send(result)
                     })
                     .catch(next)
@@ -51,7 +53,7 @@ class TasksRouter {
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .updateTask(parseInt(req.params.id), req.body)
-                    .then(result => {
+                    .then((result: Task) => {
                         res.send(result)
                     })
                     .catch(next)
@@ -63,7 +65,7 @@ class TasksRouter {
             (req: Request, res: Response, next: NextFunction) => {
                 this.tasksController
                     .deleteTask(parseInt(req.params.id))
-                    .then(result => {
+                    .then((result: DeleteResult) => {
                         res.send(result)
                     })
                     .catch(next)

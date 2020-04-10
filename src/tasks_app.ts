@@ -24,7 +24,7 @@ class TasksApp {
     }
 
     private getStream(): fs.WriteStream {
-        const filePath = path.join(path.resolve('./dist'), 'log')
+        const filePath = path.join(__dirname, 'log')
         fs.mkdirSync(filePath, { recursive: true })
         return fs.createWriteStream(path.join(filePath, 'tasks_api.log'), {
             flags: 'a'
