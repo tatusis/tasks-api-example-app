@@ -2,7 +2,7 @@
     "name": "tasks_api",
     "version": "1.0.0",
     "description": "Tasks API (REST) developed on node.js, express, typeorm and sqlite",
-    "main": "dist/app.js",
+    "main": "dist/server.js",
     "scripts": {
         "clean": "rimraf dist/**/*",
         "build": "tsc",

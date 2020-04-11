@@ -2,7 +2,7 @@
     "type": "sqlite",
     "database": "dist/storage/tasks_api.db",
     "entities": [
-        "dist/entities/*.js"
+        "dist/entities/**/*.js"
     ],
     "synchronize": true,
     "logging": false
