@@ -34,7 +34,7 @@ class TasksApp {
     public async start(): Promise<void> {
         await createConnection()
         const tasksRouter = new TasksRouter()
-        this.app.use(tasksRouter.router)
+        this.app.use('/tasks', tasksRouter.router)
         this.server = http.createServer(this.app)
         this.server.listen('3000')
     }
