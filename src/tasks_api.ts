@@ -10,7 +10,7 @@ import { createConnection } from 'typeorm'
 
 import { TasksRouter } from './routers/tasks_router'
 
-class TasksApp {
+class TasksApi {
     public app: express.Application
     public server: http.Server
 
@@ -40,4 +40,4 @@ class TasksApp {
     }
 }
 
-export { TasksApp }
+export { TasksApi }

@@ -1,21 +1,21 @@
 import chai from 'chai'
 import chaiHttp from 'chai-http'
 
-import { TasksApp } from '../tasks_app'
+import { TasksApi } from '../tasks_api'
 
 chai.use(chaiHttp)
 
 describe('TasksApp', () => {
-    const tasksApp = new TasksApp()
+    const tasksApi = new TasksApi()
 
     before((done: Mocha.Done) => {
-        tasksApp.start().then(() => {
+        tasksApi.start().then(() => {
             done()
         })
     })
 
     it('POST /tasks', (done: Mocha.Done) => {
-        chai.request(tasksApp.app)
+        chai.request(tasksApi.app)
             .post('/tasks')
             .send({
                 name: 'task1 name',
@@ -38,7 +38,7 @@ describe('TasksApp', () => {
     })
 
     it('GET /tasks', (done: Mocha.Done) => {
-        chai.request(tasksApp.app)
+        chai.request(tasksApi.app)
             .get('/tasks')
             .then((result: ChaiHttp.Response) => {
                 chai.assert.exists(result)
@@ -49,7 +49,7 @@ describe('TasksApp', () => {
     })
 
     it('GET /task/:id', (done: Mocha.Done) => {
-        chai.request(tasksApp.app)
+        chai.request(tasksApi.app)
             .get('/task/1')
             .then((result: ChaiHttp.Response) => {
                 chai.assert.exists(result)
@@ -67,7 +67,7 @@ describe('TasksApp', () => {
     })
 
     it('PUT /task/:id', (done: Mocha.Done) => {
-        chai.request(tasksApp.app)
+        chai.request(tasksApi.app)
             .put('/task/1')
             .send({ isDone: true })
             .then((result: ChaiHttp.Response) => {
@@ -86,7 +86,7 @@ describe('TasksApp', () => {
     })
 
     it('DELETE /task/:id', (done: Mocha.Done) => {
-        chai.request(tasksApp.app)
+        chai.request(tasksApi.app)
             .delete('/task/1')
             .then((result: ChaiHttp.Response) => {
                 chai.assert.exists(result)
@@ -96,7 +96,7 @@ describe('TasksApp', () => {
     })
 
     it('GET /task/:id', (done: Mocha.Done) => {
-        chai.request(tasksApp.app)
+        chai.request(tasksApi.app)
             .get('/task/1')
             .then((result: ChaiHttp.Response) => {
                 chai.assert.exists(result)
@@ -106,6 +106,6 @@ describe('TasksApp', () => {
     })
 
     after(() => {
-        tasksApp.server.close()
+        tasksApi.server.close()
     })
 })

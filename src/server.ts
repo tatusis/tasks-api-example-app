@@ -1,4 +1,4 @@
-import { TasksApp } from './tasks_app'
+import { TasksApi } from './tasks_api'
 
-const tasksApp = new TasksApp()
-tasksApp.start()
+const tasksApi = new TasksApi()
+tasksApi.start()
