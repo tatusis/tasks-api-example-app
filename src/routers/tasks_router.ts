@@ -72,6 +72,13 @@ class TasksRouter {
             }
         )
 
+        this.router.use((req: Request, res: Response, next: NextFunction) => {
+            res.status(404).send({
+                name: 'ResourceNotFound',
+                message: "Don't be mad, but that URL doesn't live here."
+            })
+        })
+
         this.router.use(
             (err: any, req: Request, res: Response, next: NextFunction) => {
                 res.status(500).send(err)
