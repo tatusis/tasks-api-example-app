@@ -43,7 +43,7 @@ npm start
 ### Return all tasks
 
 ```
-GET localhost:3000/tasks
+GET http://localhost:3000/tasks
 ```
 
 ### Create a new task - You need to pass a json as the request body
@@ -51,7 +51,7 @@ GET localhost:3000/tasks
 * Request example
 
 ```
-POST localhost:3000/tasks
+POST http://localhost:3000/tasks
 ```
 
 * Request body example
@@ -69,7 +69,7 @@ POST localhost:3000/tasks
 * Request example
 
 ```
-GET localhost:3000/tasks/1
+GET http://localhost:3000/tasks/1
 ```
 
 ### Update a task - You need to pass an ID as a request parameter and a json as the request body
@@ -77,7 +77,7 @@ GET localhost:3000/tasks/1
 * Request example
 
 ```
-PUT localhost:3000/tasks/1
+PUT http://localhost:3000/tasks/1
 ```
 
 * Request body example
@@ -93,5 +93,5 @@ PUT localhost:3000/tasks/1
 * Request example
 
 ```
-DELETE localhost:3000/tasks/1
+DELETE http://localhost:3000/tasks/1
 ```
