@@ -7,9 +7,13 @@ Tasks API (REST) developed on node.js, express, typeorm and sqlite.
 Sqlite3 must be in the system path
 
 ## How to use
-
+Clone the repository to a project folder
 ```
 git clone https://github.com/tatusis/tasks-api-example-app.git
+```
+### Step 0 - Change directory to "tasks-api-example-app"
+```
+cd tasks-api-example-app 
 ```
 
 ### Step 1 - Install dependencies
