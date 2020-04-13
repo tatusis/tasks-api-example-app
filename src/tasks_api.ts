@@ -4,10 +4,12 @@ import express from 'express'
 import fs from 'fs'
 import http from 'http'
 import logger from 'morgan'
+import passport from 'passport'
 import path from 'path'
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
 
+import { AuthRouter } from './routers/auth_router'
 import { TasksRouter } from './routers/tasks_router'
 
 class TasksApi {
@@ -21,6 +23,7 @@ class TasksApi {
         this.app.use(express.urlencoded({ extended: false }))
         this.app.use(cookieParser())
         this.app.use(cors())
+        this.app.use(passport.initialize())
     }
 
     private getStream(): fs.WriteStream {
@@ -33,8 +36,8 @@ class TasksApi {
 
     public async start(): Promise<void> {
         await createConnection()
-        const tasksRouter = new TasksRouter()
-        this.app.use('/tasks', tasksRouter.router)
+        this.app.use(new AuthRouter().router)
+        this.app.use('/tasks', new TasksRouter().router)
         this.server = http.createServer(this.app)
         this.server.listen('3000')
     }
